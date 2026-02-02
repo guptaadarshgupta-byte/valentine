@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Surprise ❤️</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .header {
+      font-family: 'Dancing Script', cursive;
+      font-size: 42px;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-size: 26px;
+      color: #444;
+      margin: 20px 0 40px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 14px 32px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #e91e63;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.08);
+      background-color: #d81b60;
+    }
+
+    #noBtn {
+      background-color: #f8bbd0;
+      color: #880e4f;
+      position: absolute;
+      left: 55%;
+      top: 0;
+    }
+
+    .result {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .result h2 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .result img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        font-size: 34px;
+      }
+      .question {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">ADARSH asking SEJAL 💕</div>
+    <div class="question">Will you be my Valentine?</div>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div class="result" id="result">
+      <h2>Good choice my darling ❤️</h2>
+      <img src="https://media.giphy.com/media/l4FGpPki5v2Bcd6Ss/giphy.gif" alt="Good choice meme" />
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const result = document.getElementById('result');
+
+    noBtn.addEventListener('mouseenter', () => {
+      const container = document.querySelector('.buttons');
+      const maxX = container.offsetWidth - noBtn.offsetWidth;
+      const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    });
+
+    yesBtn.addEventListener('click', () => {
+      document.querySelector('.buttons').style.display = 'none';
+      result.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
